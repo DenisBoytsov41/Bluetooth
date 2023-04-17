@@ -39,17 +39,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-
         Set<BluetoothDevice> pairedDevices;
-        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_DENIED)
-        {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
-            {
-                ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.BLUETOOTH_CONNECT}, 2);
-                return;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            switch (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION)) {
+                case PackageManager.PERMISSION_DENIED:
+                    ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.BLUETOOTH_CONNECT}, 2);
+
+                    break;
+                case PackageManager.PERMISSION_GRANTED:
+                    mBluetoothAdapter.startDiscovery();
+                    break;
             }
         }
-        mBluetoothAdapter.startDiscovery();
 
         pairedDevices = mBluetoothAdapter.getBondedDevices();
 

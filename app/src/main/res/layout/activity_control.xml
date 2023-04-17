@@ -184,28 +184,29 @@
 
             </LinearLayout>
         </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="25dp">
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Отправить"
-            android:layout_gravity="center_vertical|left"
-            android:layout_margin="35dp"
-            android:onClick="sendButton"/>
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Reconnect"
-            android:layout_gravity="center_vertical|right"
-            android:layout_margin="35dp"
-            android:onClick="reconnectButton" />
-    </LinearLayout>
+            android:orientation="horizontal"
+            android:layout_marginTop="25dp">
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|left"
+                android:layout_margin="35dp"
+                android:onClick="sendButton"
+                android:text="Отправить" />
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reconnect"
+                android:layout_gravity="center_vertical|right"
+                android:layout_margin="35dp"
+                android:onClick="reconnectButton" />
+        </LinearLayout>
         <TextView
             android:id="@+id/textViewMac"
             android:layout_width="match_parent"
